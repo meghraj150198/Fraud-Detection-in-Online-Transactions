@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-02-09T04:41:25.469461",
+  "system_status": {
+    "initialized": false,
+    "features_loaded": true,
+    "model_trained": true,
+    "service_ready": false,
+    "timestamp": "2026-02-09T04:41:22.797584",
+    "data_shape": [
+      14640,
+      124
+    ]
+  },
+  "data_summary": {
+    "total_transactions": 14640,
+    "total_features": 124,
+    "date_range": "See source data"
+  },
+  "scoring_results": {
+    "total_scored": 14640,
+    "fraud_flagged": 5132,
+    "fraud_rate": 35.05464480874317,
+    "average_risk_score": 98.81073224043716,
+    "high_risk_count": 135,
+    "medium_risk_count": 4997,
+    "low_risk_count": 9508
+  },
+  "risk_distribution": {
+    "low": 9508,
+    "medium": 4997,
+    "high": 135
+  },
+  "percentiles": {
+    "25th": 99.77,
+    "50th": 99.92,
+    "75th": 99.95,
+    "95th": 99.96
+  },
+  "model_performance": {
+    "accuracy": 0.9285063752276868,
+    "recall_weighted": 0.9285063752276868,
+    "precision_weighted": 0.9278920862709606,
+    "f1_weighted": 0.9262562085321184
+  }
+}
