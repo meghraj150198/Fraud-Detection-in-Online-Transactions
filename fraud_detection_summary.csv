@@ -1,0 +1,2 @@
+Total_Transactions,Total_Features,Engineered_Features,Engineered_Features_Description,Mean_Fraud_Risk_Score,Std_Fraud_Risk_Score,Low_Risk,Medium_Risk,High_Risk,Critical_Risk,Flagged_for_Review,Data_Quality_Missing_Values,Data_Quality_Infinite_Values
+14640,124,45,Original 36 + 3 transaction velocity + 6 device/location features,9.644751137614147,4.821311738494859,14473,167,0,0,31,0,0
