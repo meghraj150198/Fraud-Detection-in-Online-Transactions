@@ -1,0 +1,33 @@
+{
+  "model_info": {
+    "base_models": 8,
+    "base_model_types": [
+      "velocity",
+      "amount",
+      "device_location",
+      "merchant",
+      "temporal",
+      "payment_method",
+      "ip_historical",
+      "behavioral_meta"
+    ],
+    "total_features": 49,
+    "risk_classes": [
+      "High",
+      "Low",
+      "Medium"
+    ],
+    "training_date": "2026-02-09T04:12:56.168420"
+  },
+  "training_metrics": {
+    "accuracy": 0.9285063752276868,
+    "recall_weighted": 0.9285063752276868,
+    "precision_weighted": 0.9278920862709606,
+    "f1_weighted": 0.9262562085321184
+  },
+  "service_stats": {
+    "total_transactions_scored": 0,
+    "total_fraud_flagged": 0,
+    "fraud_flag_rate": "0.00%"
+  }
+}

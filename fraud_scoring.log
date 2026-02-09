@@ -1,0 +1,12 @@
+[2026-02-09 04:15:27,413] INFO: Initializing Fraud Scoring Service...
+[2026-02-09 04:15:28,587] INFO: ✓ Model loaded with 49 features
+[2026-02-09 04:15:28,587] INFO: ✓ Risk classes: ['High', 'Low', 'Medium']
+[2026-02-09 04:15:28,587] INFO: ✓ Base models: 8 signal groups
+[2026-02-09 04:15:28,780] INFO: Scoring 100 transactions...
+[2026-02-09 04:15:29,168] INFO: ✓ Scored 100 transactions
+[2026-02-09 04:15:29,171] INFO:   • Fraud Flagged: 24 (24.00%)
+[2026-02-09 04:15:29,173] INFO:   • Average Risk Score: 98.77/100
+[2026-02-09 04:15:29,217] INFO: Scoring 1 transactions...
+[2026-02-09 04:15:29,816] INFO: ✓ Scored 1 transactions
+[2026-02-09 04:15:29,816] INFO:   • Fraud Flagged: 0 (0.00%)
+[2026-02-09 04:15:29,816] INFO:   • Average Risk Score: 99.71/100
