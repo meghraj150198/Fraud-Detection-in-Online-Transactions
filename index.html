@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection System - Features & Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .launch-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .launch-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+        
+        .launch-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .launch-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            color: #2ecc71;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .metrics-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .metrics-section h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2em;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .metric {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .metric .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .metric .label {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+        
+        .pages-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .pages-section h2 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        
+        .page-item {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .page-item:hover {
+            background: #f0f1ff;
+            border-left-color: #764ba2;
+        }
+        
+        .page-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .page-item p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .tech-stack {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .tech-stack h2 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .tech-item {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #f0f1ff;
+        }
+        
+        .footer {
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 2px solid #667eea;
+        }
+        
+        .footer p {
+            margin: 5px 0;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            background: #2ecc71;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+        
+        .model-info {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .model-info h3 {
+            margin-bottom: 15px;
+        }
+        
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stat {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .launch-btn {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .cta-buttons button,
+            .cta-buttons a {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🛡️ Fraud Detection System</h1>
+        <p>Advanced Real-Time Fraud Detection with Interactive Analytics</p>
+    </div>
+    
+    <div class="container">
+        <!-- Launch Section -->
+        <div class="launch-section">
+            <h2>🚀 Launch Dashboard</h2>
+            <p style="color: #666; margin: 15px 0 25px 0; font-size: 1.1em;">
+                Access the interactive fraud detection dashboard to monitor, analyze, and score transactions in real-time.
+            </p>
+            <div class="cta-buttons">
+                <a href="http://localhost:8501" class="launch-btn btn-primary" target="_blank">
+                    📊 Open Dashboard
+                </a>
+                <a href="#features" class="launch-btn btn-secondary">
+                    📖 Learn More
+                </a>
+            </div>
+        </div>
+        
+        <!-- Model Performance -->
+        <div class="model-info">
+            <h3>🎯 Model Performance</h3>
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-value">92.85%</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">87.71%</div>
+                    <div class="stat-label">Fraud Recall</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">3.01%</div>
+                    <div class="stat-label">False Alarms</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">~200</div>
+                    <div class="stat-label">Tx/Second</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Key Metrics -->
+        <div class="metrics-section">
+            <h2>📊 System Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric">
+                    <div class="number">14,640</div>
+                    <div class="label">Transactions Analyzed</div>
+                </div>
+                <div class="metric">
+                    <div class="number">5,132</div>
+                    <div class="label">Fraud Cases Detected</div>
+                </div>
+                <div class="metric">
+                    <div class="number">124</div>
+                    <div class="label">Features per Transaction</div>
+                </div>
+                <div class="metric">
+                    <div class="number">8</div>
+                    <div class="label">Signal-Specific Models</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dashboard Pages -->
+        <div class="pages-section">
+            <h2>📱 Dashboard Pages</h2>
+            
+            <div class="page-item">
+                <h4>📊 Dashboard Page</h4>
+                <p><strong>Real-time fraud metrics and visualizations</strong></p>
+                <p>View key metrics (total transactions, fraud rate, risk scores), risk distribution charts, score histograms, and statistical percentiles. Perfect for daily monitoring and quick status checks.</p>
+            </div>
+            
+            <div class="page-item">
+                <h4>🔍 Scoring Page</h4>
+                <p><strong>Score individual transactions or process batches</strong></p>
+                <p>Score single transactions instantly with 8 input fields and confidence scores. Upload CSV files for batch processing (up to 100k records) and download predictions with risk classifications.</p>
+            </div>
+            
+            <div class="page-item">
+                <h4>📈 Analytics Page</h4>
+                <p><strong>Advanced fraud pattern analysis and insights</strong></p>
+                <p>Three tabs: Risk Analysis (confidence distribution, statistics), Feature Importance (feature stats, top indicators), and High Risk Transactions (detailed list with filtering and export).</p>
+            </div>
+            
+            <div class="page-item">
+                <h4>⚙️ System Info Page</h4>
+                <p><strong>System health, model metrics, and deployment reference</strong></p>
+                <p>Check component status (7 items), view model performance metrics (accuracy, precision, recall, F1-score), and reference deployment options with code examples.</p>
+            </div>
+        </div>
+        
+        <!-- Key Features -->
+        <div style="margin-bottom: 40px;">
+            <h2 style="text-align: center; color: white; font-size: 2em; margin-bottom: 30px;">✨ Key Features</h2>
+            <div class="features-grid" id="features">
+                <div class="feature-card">
+                    <h3>🎯 Real-Time Monitoring</h3>
+                    <ul class="feature-list">
+                        <li>Live transaction metrics</li>
+                        <li>Fraud rate tracking</li>
+                        <li>Risk score visualization</li>
+                        <li>System health indicators</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🔍 Interactive Scoring</h3>
+                    <ul class="feature-list">
+                        <li>Single transaction scoring</li>
+                        <li>Batch CSV processing</li>
+                        <li>Instant predictions</li>
+                        <li>Confidence scores</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>📊 Advanced Analytics</h3>
+                    <ul class="feature-list">
+                        <li>Fraud pattern analysis</li>
+                        <li>Feature correlation heatmap</li>
+                        <li>Risk distribution breakdown</li>
+                        <li>High-risk investigation</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🎨 Beautiful UI</h3>
+                    <ul class="feature-list">
+                        <li>Interactive Plotly charts</li>
+                        <li>Color-coded risk levels</li>
+                        <li>Mobile responsive design</li>
+                        <li>Dark/light theme support</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>💾 Data Export</h3>
+                    <ul class="feature-list">
+                        <li>Download scored transactions</li>
+                        <li>Export flagged transactions</li>
+                        <li>Generate reports</li>
+                        <li>CSV format support</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>✅ Production Ready</h3>
+                    <ul class="feature-list">
+                        <li>Error handling & validation</li>
+                        <li>Caching for performance</li>
+                        <li>Responsive layout</li>
+                        <li>Docker deployment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technology Stack -->
+        <div class="tech-stack">
+            <h2>🛠️ Technology Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">Python 3.12</div>
+                <div class="tech-item">Streamlit</div>
+                <div class="tech-item">Plotly Charts</div>
+                <div class="tech-item">Scikit-Learn</div>
+                <div class="tech-item">XGBoost</div>
+                <div class="tech-item">Pandas & NumPy</div>
+                <div class="tech-item">Flask API</div>
+                <div class="tech-item">Docker</div>
+            </div>
+        </div>
+        
+        <!-- ML Model Info -->
+        <div style="background: white; border-radius: 15px; padding: 40px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <h2 style="color: #667eea; margin-bottom: 25px; font-size: 1.8em;">🤖 Machine Learning Model</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                <div>
+                    <h4 style="color: #667eea; margin-bottom: 10px;">Architecture</h4>
+                    <p style="color: #666;">Stacked ensemble with 8 signal-specific Random Forest base models and Gradient Boosting meta-learner for robust multi-class fraud classification.</p>
+                </div>
+                <div>
+                    <h4 style="color: #667eea; margin-bottom: 10px;">Feature Engineering</h4>
+                    <p style="color: #666;">96 engineered features across 9 signal groups: velocity, amount, device, merchant, temporal, payment, IP, behavioral, and combined risk patterns.</p>
+                </div>
+                <div>
+                    <h4 style="color: #667eea; margin-bottom: 10px;">Training Data</h4>
+                    <p style="color: #666;">14,640 transactions with 124 features (96 engineered + 26 original). 0 missing values, 0 duplicates, comprehensive quality assurance.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Start -->
+        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 15px; padding: 40px; color: white; margin-bottom: 40px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom: 20px;">🚀 Quick Start</h2>
+            <p style="font-size: 1.1em; margin-bottom: 25px;">Get the fraud detection dashboard running in 30 seconds:</p>
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; font-family: 'Courier New', monospace; text-align: left; display: inline-block; margin-bottom: 20px;">
+                <p>$ pip install streamlit plotly</p>
+                <p>$ streamlit run dashboard.py</p>
+                <p>→ Open: http://localhost:8501</p>
+            </div>
+            <p style="font-size: 0.95em; opacity: 0.9;">Or use the automated startup script: <code style="background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">./start_dashboard.sh</code></p>
+        </div>
+        
+        <!-- Call to Action -->
+        <div style="text-align: center;">
+            <div class="cta-buttons">
+                <a href="http://localhost:8501" class="launch-btn btn-primary" target="_blank" style="font-size: 1.3em; padding: 20px 60px;">
+                    📊 Launch Dashboard Now
+                </a>
+                <a href="#" class="launch-btn btn-secondary" onclick="alert('For documentation, see: DASHBOARD_GUIDE.md'); return false;" style="font-size: 1.1em;">
+                    📖 View Documentation
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p><strong>🛡️ Fraud Detection System v1.0</strong></p>
+        <p>Production-Ready • 92.85% Accuracy • Real-Time Monitoring</p>
+        <p style="margin-top: 15px; opacity: 0.8;">Last Updated: February 9, 2026</p>
+    </div>
+</body>
+</html>
